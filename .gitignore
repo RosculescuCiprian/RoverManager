@@ -1,0 +1,23 @@
+# SBT
+dist/*
+boot/
+project/boot/
+project/plugins/project/
+project/target
+project/project
+lib_managed/
+src_managed/
+target/
+.history
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+
+
+
+
