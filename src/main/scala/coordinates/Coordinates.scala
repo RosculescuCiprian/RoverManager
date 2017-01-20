@@ -13,4 +13,3 @@ object Coordinates {
   def GoRight(coordinates: Coordinates) = Coordinates(coordinates.x - 1, coordinates.y)
 
 }
-

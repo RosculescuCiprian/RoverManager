@@ -6,6 +6,7 @@ import rover.RoverPosition
 
 trait RoverAction {
   val name: String
+
   def executeAction(roverPosition: RoverPosition): RoverPosition
 }
 
@@ -14,26 +15,26 @@ case object Move extends RoverAction {
 
   override def executeAction(roverPosition: RoverPosition): RoverPosition =
     roverPosition.copy(roverCoordinates = roverPosition
-      .facingCardinalPoint.changePositionOnMove(roverPosition.roverCoordinates))
+      .roverDirection.changePositionOnMove(roverPosition.roverCoordinates))
 }
 
 case object Left extends RoverAction {
   override val name: String = "L"
 
   override def executeAction(roverPosition: RoverPosition): RoverPosition =
-    roverPosition.copy(facingCardinalPoint = DirectionsFactory.getRoverDirectionFromCardinalPoint(
-      roverPosition.facingCardinalPoint.leftCardinalPoint
+    roverPosition.copy(roverDirection = DirectionsFactory.getRoverDirectionFromCardinalPoint(
+      roverPosition.roverDirection.leftCardinalPoint
     ))
- }
+}
 
 case object Right extends RoverAction {
   override val name: String = "R"
 
   override def executeAction(roverPosition: RoverPosition): RoverPosition =
-    roverPosition.copy(facingCardinalPoint = DirectionsFactory.getRoverDirectionFromCardinalPoint(
-      roverPosition.facingCardinalPoint.rightCardinalPoint
+    roverPosition.copy(roverDirection = DirectionsFactory.getRoverDirectionFromCardinalPoint(
+      roverPosition.roverDirection.rightCardinalPoint
     ))
- }
+}
 
 case object Stop extends RoverAction {
   override val name: String = "S"
